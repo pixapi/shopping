@@ -24,6 +24,10 @@ Again, if you're stuck - attempt to do some research on your own, then check the
 
 #### Activity 1
 
+Take a look in `views/new_item.erb`. You'll see an existing form. Can you identify what each piece of the form does? What currently happens when you launch the server, visit `/items/new`, and try to submit the form?
+
+Modify the code in the route that handles this request so that the data a user enters in the form is shown on the page after submission.
+
 #### Activity 2
 
 ## Hints

@@ -9,3 +9,15 @@ get '/' do
   erb :index
 end
 
+
+
+# Practice with Form Params
+
+get '/items/new' do
+  erb :new_item
+end
+
+post '/items' do
+  erb :cart
+end
+
