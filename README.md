@@ -30,6 +30,10 @@ Modify the code in the route that handles this request so that the data a user e
 
 #### Activity 2
 
+You'll see a route in your `shopping_app.rb` to `get '/users/new'` that renders a view template that's blank. Create a form in this file that will accept a username and password.
+
+Create a route that handles the submission of this form (a `POST` to `/users`). Then, create a view that displays the submitted data.
+
 ## Hints
 
 ### Query String Parameters
@@ -69,7 +73,7 @@ Then, we'll need to render the correct view:
 # shopping_app.rb
 
 get '/cart' do
-  @item = params["item"]
+  @item = params["item_name"]
   @price = params["price"]
 
   erb :cart
@@ -80,5 +84,40 @@ end
 
 #### Activity 1
 
+The `name` attribute on the `input` tags in `views/new_item.erb`. We can access these keys within `params` to pull the data that was submitted via the form.
+
+```ruby
+post '/items' do
+  @item = params["item_name"]
+  @price = params["price"]
+
+  erb :cart
+end
+
+```
 
 #### Activity 2
+
+In `views/new_user.erb`, let's create a form:
+```erb
+<form method="POST" action="/users">
+  Username: <input type="text" name="username">
+  Password: <input type="text" name="password">
+  <input type="submit" value="Submit">
+</form>
+```
+
+In our `shopping_app.rb`, we'll define the route that accepts this data then renders a new view.
+
+```ruby
+# shopping_app.rb
+
+post '/users' do
+  @username = params["username"]
+  @password = params["password"]
+
+  erb :user
+end
+```
+
+In your `views/user.erb`, you can access `@username` and `@password` and display this data!

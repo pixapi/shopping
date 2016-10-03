@@ -9,8 +9,6 @@ get '/' do
   erb :index
 end
 
-
-
 # Practice with Form Params
 
 get '/items/new' do
@@ -21,3 +19,6 @@ post '/items' do
   erb :cart
 end
 
+get '/users/new' do
+  erb :new_user
+end
