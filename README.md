@@ -8,13 +8,15 @@ Remember, there are a few different ways to pass data. We'll be focus on passing
 
 #### Activity 1
 
-You'll see a route defined in `shopping_app.rb` that handles requests to the root (`/`). It's looking for a "name" in the `params`. Can you add something to the url to make the name entered appear on the page? Do **NOT** change any code in the `index.erb` view.
+You'll see a route defined in `shopping_app.rb` that handles requests to the root (`/`). It's looking for a "name" in the `params`. 
+
+Add something to the url to make the name added in the url appear on the page. Do **NOT** change any code in the `index.erb` view.
 
 If you're stuck, research query string parameters. If you're still stuck, scroll down to the bottom for help.
 
 #### Activity 2
 
-Next, create a route that handles `GET` requests to `/cart` that renders the `views/cart.erb` view template after setting the instance variables necessary. You'll need to pass query string parameters in your url with keys of `item_name` and `price`. Do **NOT** change the code in the `cart.erb` view template.
+Next, create a route that handles `GET` requests to `/cart` (in your server file - `shopping_app.rb`) that renders the `views/cart.erb` view template after setting the instance variables necessary. You'll need to pass query string parameters in your url with keys of `item_name` and `price`. Do **NOT** change the code in the `cart.erb` view template.
 
 Again, if you're stuck - attempt to do some research on your own, then check the "Hints" section.
 
@@ -50,7 +52,7 @@ Then, we'll need to assign the instance variables requested:
 # shopping_app.rb
 
 get '/cart' do
-  @item = params["item"]
+  @item = params["item_name"]
   @price = params["price"]
 end
 ```
