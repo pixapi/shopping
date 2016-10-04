@@ -16,7 +16,7 @@ If you're stuck, research query string parameters. If you're still stuck, scroll
 
 #### Activity 2
 
-Next, create a route that handles `GET` requests to `/cart` (in your server file - `shopping_app.rb`) that renders the `views/cart.erb` view template after setting the instance variables necessary. You'll need to pass query string parameters in your url with keys of `item_name` and `price`. Do **NOT** change the code in the `cart.erb` view template.
+Next, create a route that handles `GET` requests to `/cart` (in your server file - `shopping_app.rb`) that renders the `views/cart.erb` view template after setting the instance variables necessary. You'll need to pass query string parameters in your url with keys of `item` and `price`. Do **NOT** change the code in the `cart.erb` view template.
 
 Again, if you're stuck - attempt to do some research on your own, then check the "Hints" section.
 
@@ -60,7 +60,7 @@ Then, we'll need to assign the instance variables requested:
 # shopping_app.rb
 
 get '/cart' do
-  @item = params["item_name"]
+  @item = params["item"]
   @price = params["price"]
 end
 ```
@@ -73,7 +73,7 @@ Then, we'll need to render the correct view:
 # shopping_app.rb
 
 get '/cart' do
-  @item = params["item_name"]
+  @item = params["item"]
   @price = params["price"]
 
   erb :cart
@@ -88,7 +88,7 @@ The `name` attribute on the `input` tags in `views/new_item.erb`. We can access 
 
 ```ruby
 post '/items' do
-  @item = params["item_name"]
+  @item = params["item"]
   @price = params["price"]
 
   erb :cart
